@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="id" x-data="{ mobileOpen: false }">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Armoniza Generation — Organisasi Pelajar Jakarta di Mesir</title>
+  <!-- Tailwind (CDN) -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Alpine.js (CDN) -->
+  <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+  <!-- Tailwind config (opsional untuk warna kustom) -->
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              50: '#effef3',
+              100: '#dbfde5',
+              200: '#b9f7cc',
+              300: '#86edac',
+              400: '#4bde82',
+              500: '#27c668',
+              600: '#1aa755',
+              700: '#177e45',
+              800: '#165f38',
+              900: '#134e2f',
+            },
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="bg-white text-gray-800 antialiased">
+
+  <!-- Navbar -->
+  <header class="sticky top-0 z-50 bg-white/80 backdrop-blur border-b border-gray-200">
+    <nav class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+      <a href="#" class="flex items-center gap-2 group" aria-label="Armoniza Home">
+        <span class="inline-block w-8 h-8 rounded-lg bg-gradient-to-br from-brand-500 to-brand-700 shadow-sm"></span>
+        <span class="text-lg font-bold tracking-wide text-gray-900 group-hover:text-brand-700 transition">Armoniza</span>
+      </a>
+
+      <!-- Desktop menu -->
+      <ul class="hidden md:flex items-center gap-6">
+        <li><a href="#tentang" class="text-sm font-semibold text-gray-700 hover:text-brand-700 transition">Tentang</a></li>
+        <li><a href="#kegiatan" class="text-sm font-semibold text-gray-700 hover:text-brand-700 transition">Kegiatan</a></li>
+        <li><a href="#galeri" class="text-sm font-semibold text-gray-700 hover:text-brand-700 transition">Galeri</a></li>
+        <li><a href="#kontak" class="text-sm font-semibold text-gray-700 hover:text-brand-700 transition">Kontak</a></li>
+      </ul>
+
+      <!-- CTA -->
+      <div class="hidden md:flex">
+        <a href="#kontak" class="inline-flex items-center rounded-lg bg-brand-600 px-4 py-2 text-sm font-semibold text-white shadow-sm hover:bg-brand-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-600 transition">
+          Gabung Sekarang
+        </a>
+      </div>
+
+      <!-- Mobile menu button -->
+      <button @click="mobileOpen = !mobileOpen" class="md:hidden inline-flex items-center justify-center rounded-md p-2 text-gray-700 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-brand-600" aria-label="Buka menu">
+        <svg x-show="!mobileOpen" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 7h16M4 12h16M4 17h16"/>
+        </svg>
+        <svg x-show="mobileOpen" x-cloak xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+        </svg>
+      </button>
+    </nav>
+
+    <!-- Mobile menu -->
+    <div x-show="mobileOpen" x-transition class="md:hidden border-t border-gray-200 bg-white">
+      <ul class="mx-auto max-w-7xl px-4 py-3 space-y-2">
+        <li><a @click="mobileOpen=false" href="#tentang" class="block rounded-md px-3 py-2 text-sm font-semibold text-gray-700 hover:bg-gray-100">Tentang</a></li>
+        <li><a @click="mobileOpen=false" href="#kegiatan" class="block rounded-md px-3 py-2 text-sm font-semibold text-gray-700 hover:bg-gray-100">Kegiatan</a></li>
+        <li><a @click="mobileOpen=false" href="#galeri" class="block rounded-md px-3 py-2 text-sm font-semibold text-gray-700 hover:bg-gray-100">Galeri</a></li>
+        <li><a @click="mobileOpen=false" href="#kontak" class="block rounded-md px-3 py-2 text-sm font-semibold text-gray-700 hover:bg-gray-100">Kontak</a></li>
+        <li><a @click="mobileOpen=false" href="#kontak" class="block rounded-md px-3 py-2 bg-brand-600 text-white text-sm font-semibold hover:bg-brand-700">Gabung Sekarang</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="relative isolate">
+    <div class="absolute inset-0 -z-10 bg-gradient-to-br from-brand-50 via-white to-brand-100"></div>
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16 lg:py-24 grid lg:grid-cols-2 gap-10 items-center">
+      <div>
+        <h1 class="text-4xl sm:text-5xl font-extrabold tracking-tight text-gray-900">
+          Armoniza Generation
+        </h1>
+        <p class="mt-4 text-lg leading-relaxed text-gray-600">
+          Tempat ngumpulnya anak-anak Jakarta di Mesir. Kita belajar, berkreasi, dan bikin suasana rame tapi tetap berfaedah. Gaya Betawi, visi global.
+        </p>
+        <div class="mt-8 flex items-center gap-4">
+          <a href="#kontak" class="inline-flex items-center rounded-lg bg-brand-600 px-5 py-3 text-sm font-semibold text-white shadow hover:bg-brand-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-600 transition">
+            Daftar Komunitas
+          </a>
+          <a href="#kegiatan" class="inline-flex items-center rounded-lg border border-gray-300 px-5 py-3 text-sm font-semibold text-gray-800 hover:bg-gray-50 transition">
+            Lihat Kegiatan
+          </a>
+        </div>
+      </div>
+      <div class="relative">
+        <div class="rounded-2xl bg-white border border-gray-200 shadow-lg p-6 sm:p-8">
+          <div class="aspect-video rounded-lg bg-gray-100 flex items-center justify-center">
+            <span class="inline-block w-24 h-24 rounded-xl bg-gradient-to-br from-brand-500 to-brand-700 shadow"></span>
+          </div>
+          <p class="mt-4 text-sm text-gray-500">
+            Logo placeholder. Ganti dengan logo resmi organisasi kamu biar makin kece.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Tentang -->
+  <section id="tentang" class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16">
+    <div class="grid lg:grid-cols-3 gap-8">
+      <div class="lg:col-span-1">
+        <h2 class="text-3xl font-bold text-gray-900">Tentang Armoniza</h2>
+        <p class="mt-4 text-gray-600">
+          Kami wadah kolaborasi pelajar Jakarta di Mesir: memperkuat solidaritas, meningkatkan kompetensi, dan merayakan budaya. Visi kami: komunitas yang produktif, inklusif, dan berdampak.
+        </p>
+      </div>
+      <div class="lg:col-span-2 grid sm:grid-cols-2 gap-6">
+        <div class="rounded-xl border border-gray-200 p-6 shadow-sm hover:shadow-md transition">
+          <h3 class="text-lg font-semibold text-gray-900">Nilai</h3>
+          <p class="mt-2 text-gray-600">Transparansi, kebersamaan, dan inovasi. Kita jagain akhlak, ngegas prestasi.</p>
+        </div>
+        <div class="rounded-xl border border-gray-200 p-6 shadow-sm hover:shadow-md transition">
+          <h3 class="text-lg font-semibold text-gray-900">Program</h3>
+          <p class="mt-2 text-gray-600">Ngaji bareng, diskusi, karya kreatif, mentoring, dan proyek sosial.</p>
+        </div>
+        <div class="rounded-xl border border-gray-200 p-6 shadow-sm hover:shadow-md transition">
+          <h3 class="text-lg font-semibold text-gray-900">Komunitas</h3>
+          <p class="mt-2 text-gray-600">Rukun, adaptif, dan asik. Betawi banget tapi tetap mendunia.</p>
+        </div>
+        <div class="rounded-xl border border-gray-200 p-6 shadow-sm hover:shadow-md transition">
+          <h3 class="text-lg font-semibold text-gray-900">Akses</h3>
+          <p class="mt-2 text-gray-600">Acara rutin, materi terbuka, dan jaringan lintas kampus.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Kegiatan -->
+  <section id="kegiatan" class="bg-gray-50">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16">
+      <div class="flex items-end justify-between">
+        <h2 class="text-3xl font-bold text-gray-900">Kegiatan Unggulan</h2>
+        <a href="#kontak" class="text-sm font-semibold text-brand-700 hover:text-brand-800">Ikut Kegiatan →</a>
+      </div>
+      <div class="mt-8 grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <article class="rounded-xl border border-gray-200 bg-white p-6 shadow-sm hover:shadow-md transition">
+          <h3 class="text-lg font-semibold text-gray-900">Ngaji Bareng</h3>
+          <p class="mt-2 text-gray-600">Biar hati adem, ilmu nambah. Rutin mingguan.</p>
+        </article>
+        <article class="rounded-xl border border-gray-200 bg-white p-6 shadow-sm hover:shadow-md transition">
+          <h3 class="text-lg font-semibold text-gray-900">Diskusi Santai</h3>
+          <p class="mt-2 text-gray-600">Bahas isu terkini, ngopi-ngopi, bijak dan berfaedah.</p>
+        </article>
+        <article class="rounded-xl border border-gray-200 bg-white p-6 shadow-sm hover:shadow-md transition">
+          <h3 class="text-lg font-semibold text-gray-900">Karya Kreatif</h3>
+          <p class="mt-2 text-gray-600">Konten, desain, acara. Biar karya kita bersuara.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Galeri -->
+  <section id="galeri" class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16">
+    <div class="flex items-end justify-between">
+      <h2 class="text-3xl font-bold text-gray-900">Galeri</h2>
+      <div x-data="{ filter: 'semua' }" class="flex items-center gap-2">
+        <button @click="filter='semua'" :class="filter==='semua' ? 'bg-brand-600 text-white' : 'bg-gray-100 text-gray-800'" class="px-3 py-1 rounded-md text-sm font-semibold">Semua</button>
+        <button @click="filter='acara'" :class="filter==='acara' ? 'bg-brand-600 text-white' : 'bg-gray-100 text-gray-800'" class="px-3 py-1 rounded-md text-sm font-semibold">Acara</button>
+        <button @click="filter='komunitas'" :class="filter==='komunitas' ? 'bg-brand-600 text-white' : 'bg-gray-100 text-gray-800'" class="px-3 py-1 rounded-md text-sm font-semibold">Komunitas</button>
+      </div>
+    </div>
+
+    <div class="mt-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6" x-data="{ items: [
+      {src:'image/hero.svg', tag:'acara', alt:'Acara 1'},
+      {src:'image/Logo.png', tag:'komunitas', alt:'Komunitas'},
+      {src:'image/2.svg', tag:'acara', alt:'Acara 2'},
+      {src:'image/hero.svg', tag:'komunitas', alt:'Komunitas 2'},
+      {src:'image/2.svg', tag:'acara', alt:'Acara 3'},
+      {src:'image/Logo.png', tag:'komunitas', alt:'Logo'}
+    ]}">
+      <template x-for="(item, i) in items" :key="i">
+        <figure x-show="$root.previousElementSibling.__x.$data.filter==='semua' || $root.previousElementSibling.__x.$data.filter===item.tag" x-transition
+                class="group rounded-xl overflow-hidden border border-gray-200 bg-white shadow-sm hover:shadow-md transition">
+          <img :src="item.src" :alt="item.alt" class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300">
+          <figcaption class="px-4 py-3 text-sm text-gray-700 flex items-center justify-between">
+            <span x-text="item.alt"></span>
+            <span class="inline-flex items-center gap-1 text-xs text-gray-500">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-brand-600" viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="10"/></svg>
+              <span x-text="item.tag"></span>
+            </span>
+          </figcaption>
+        </figure>
+      </template>
+    </div>
+  </section>
+
+  <!-- Kontak -->
+  <section id="kontak" class="bg-gray-50">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16">
+      <div class="grid lg:grid-cols-2 gap-10">
+        <div>
+          <h2 class="text-3xl font-bold text-gray-900">Kontak & Pendaftaran</h2>
+          <p class="mt-4 text-gray-600">
+            Punya pertanyaan atau mau gabung? Tinggal isi form di sebelah. Santai aja, kita bantuin.
+          </p>
+          <ul class="mt-6 space-y-3">
+            <li class="flex items-center gap-3">
+              <span class="inline-block w-8 h-8 rounded-md bg-brand-600"></span>
+              <span class="text-sm text-gray-700">Jakarta — Mesir, jaringan pelajar lintas kampus.</span>
+            </li>
+            <li class="flex items-center gap-3">
+              <span class="inline-block w-8 h-8 rounded-md bg-brand-600"></span>
+              <span class="text-sm text-gray-700">Acara rutin & materi terbuka.</span>
+            </li>
+          </ul>
+        </div>
+
+        <form class="rounded-xl border border-gray-200 bg-white p-6 shadow-sm">
+          <div class="grid sm:grid-cols-2 gap-4">
+            <div>
+              <label class="block text-sm font-semibold text-gray-700">Nama</label>
+              <input type="text" class="mt-1 w-full rounded-lg border border-gray-300 px-3 py-2 text-sm focus:border-brand-600 focus:ring-brand-600" placeholder="Tulis nama kamu">
+            </div>
+            <div>
+              <label class="block text-sm font-semibold text-gray-700">Email</label>
+              <input type="email" class="mt-1 w-full rounded-lg border border-gray-300 px-3 py-2 text-sm focus:border-brand-600 focus:ring-brand-600" placeholder="email@example.com">
+            </div>
+            <div class="sm:col-span-2">
+              <label class="block text-sm font-semibold text-gray-700">Pesan</label>
+              <textarea rows="4" class="mt-1 w-full rounded-lg border border-gray-300 px-3 py-2 text-sm focus:border-brand-600 focus:ring-brand-600" placeholder="Tulis pesan kamu"></textarea>
+            </div>
+          </div>
+          <button type="button" class="mt-6 w-full sm:w-auto inline-flex items-center rounded-lg bg-brand-600 px-5 py-2.5 text-sm font-semibold text-white shadow hover:bg-brand-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-600 transition">
+            Kirim
+          </button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="border-t border-gray-200">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-10 flex flex-col sm:flex-row items-center justify-between gap-4">
+      <p class="text-sm text-gray-600">&copy; 2025 Armoniza Generation. Hak cipta dilindungi.</p>
+      <div class="flex items-center gap-4">
+        <a href="#" class="text-sm font-semibold text-gray-700 hover:text-brand-700 transition">Instagram</a>
+        <a href="#" class="text-sm font-semibold text-gray-700 hover:text-brand-700 transition">Facebook</a>
+        <a href="#" class="text-sm font-semibold text-gray-700 hover:text-brand-700 transition">YouTube</a>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

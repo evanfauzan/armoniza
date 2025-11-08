@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Armoiza - KPJ</title>
+    <link rel="stylesheet" href="src/output.css">
+    <script defer src="node_modules/alpinejs/dist/cdn.min.js"></script>
+</head>
+<body>
+    <nav x-data="{open: false}" class="flex bg-gradient-to-r from-green-400 via-green-300 to-green-400 w-full shadow shadow-slate-700 h-14 items-center p-4 justify-between relative">
+        
+        <h1 class="font-bold text-white text-shadow-sm text-shadow-slate-700 text-2xl">Armoniza</h1>
+
+        <ul class="hidden md:flex gap-4">
+            <li><a href="#" class="font-bold text-slate-100 hover:text-white transition-all duration-300 text-shadow-2xs text-shadow-slate-400">Home</a></li>
+            <li><a href="#" class="font-bold text-slate-100 hover:text-white transition-all duration-300 text-shadow-2xs text-shadow-slate-400">About Us</a></li>
+            <li><a href="#" class="font-bold text-slate-100 hover:text-white transition-all duration-300 text-shadow-2xs text-shadow-slate-400">Activity</a></li>
+            <li><a href="#" class="font-bold text-slate-100 hover:text-white transition-all duration-300 text-shadow-2xs text-shadow-slate-400">Contact</a></li>
+        </ul>
+
+        <button class="flex flex-col gap-0.5 hover:border-2 hover:border p-1 rounded border-amber-50 md:hidden" @click="open = !open">
+            <span class="h-1 w-6 bg-amber-50 rounded-2xl"></span>
+            <span class="h-1 w-6 bg-amber-50 rounded-2xl"></span>
+            <span class="h-1 w-6 bg-amber-50 rounded-2xl"></span>
+        </button>
+        
+        <div 
+            class="md:hidden absolute top-14 inset-x-0 bg-gradient-to-r from-green-400 via-green-300 to-green-400 shadow-lg py-2 z-10" 
+            x-show="open"
+            x-transition:enter="transition ease-out duration-300"
+            x-transition:enter-start="opacity-0 transform -translate-y-4"
+            x-transition:enter-end="opacity-100 transform translate-y-0"
+            x-transition:leave="transition ease-in duration-200"
+            x-transition:leave-start="opacity-100 transform translate-y-0"
+            x-transition:leave-end="opacity-0 transform -translate-y-4"
+        >
+            <a href="#" class="block px-4 py-2 text-white hover:bg-green-600">Home</a>
+            <a href="#" class="block px-4 py-2 text-white hover:bg-green-600">About Us</a>
+            <a href="#" class="block px-4 py-2 text-white hover:bg-green-600">Activity</a>
+            <a href="#" class="block px-4 py-2 text-white hover:bg-green-600">Contact</a>
+        </div>
+    </nav>
+    <!-- <div>
+        <div class="size-18 rounded-full bg-radial from-pink-400 from-55% to-fuchsia-700"></div>
+<div class="size-18 rounded-full bg-radial-[at_40%_30%] from-sky-200 via-blue-400 to-indigo-900 to-90%"></div>
+<div class="size-18 rounded-full bg-radial-[at_25%_25%] from-white to-zinc-900 to-75%"></div>
+<div class="size-24 rounded-full bg-conic from-blue-600 to-sky-400 to-50%"></div>
+<div class="size-24 rounded-full bg-conic-180 from-indigo-600 via-indigo-50 to-indigo-600"></div>
+<div class="size-24 rounded-full bg-conic/decreasing from-violet-700 via-lime-300 to-violet-700"></div>
+    </div> -->
+    <div class="selection:bg-green-200 selection:opacity-30 w-full py-12 relative rounded-b-3xl overflow-hidden shadow shadow-slate-800 bg-cover bg-no-repeat" style="background-image: url(image/2.svg);">
+        <div class="hover:scale-120 transition-transform duration-300 bg-radial-[at_100%_100%] to-65% from-green-400 to-green-800 absolute bottom-0 right-0 size-30 rounded-tl-full shadow shadow-slate-700 animate-pulse"></div>
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="flex flex-col md:flex-row items-center justify-between gap-8">
+                <!-- Text Content -->
+                <div class="flex-1 max-w-xl md:max-w-2xl">
+                    <h1 class="font-bold text-4xl md:text-5xl text-cyan-50 text-center md:text-left mb-6">
+                        <span class="text-transparent bg-gradient-to-r from-green-800 via-green-600 to-green-700 bg-clip-text selection:text-white">Armoniza</span> Generation
+                    </h1>
+                    <p class="text-cyan-100 text-lg md:text-xl text-center md:text-left leading-relaxed text-shadow-2xs">
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque eaque totam velit animi voluptates ducimus
+                    </p>
+                </div>
+
+                <!-- Image Container -->
+                <div class="w-full md:w-1/2 lg:w-2/5 flex justify-center scale-125">
+                    <div class="w-72 h-72 md:w-80 md:h-80 lg:w-96 lg:h-96 overflow-hidden scale-150">
+                        <div class="w-full h-full bg-no-repeat bg-contain bg-center" 
+                            style="background-image: url(image/Logo.png);"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container m-auto -translate-y-14 z-50 flex">
+        <div class="sm:size-36 m-auto bg-radial from-green-100 to-green-300 rounded-4xl shadow shadow-slate-700 size-30 hover:-translate-y-1 transition-all duration-700 hover:shadow-lg"></div>
+        <div class="sm:size-36 m-auto bg-radial from-green-100 to-green-300 rounded-4xl shadow shadow-slate-700 size-30 hover:-translate-y-1 transition-all duration-700 hover:shadow-lg"></div>
+        <div class="sm:size-36 m-auto bg-radial from-green-100 to-green-300 rounded-4xl shadow shadow-slate-700 size-30 hover:-translate-y-1 transition-all duration-700 hover:shadow-lg"></div>
+    </div>
+    <div class="m-auto flex justify-center flex-col">
+        <h1 class="font-bold text-4xl text-transparent bg-gradient-to-r from-green-800 via-green-600 to-green-700 bg-clip-text text-shadow-2xs h-30">Our Top Gallery</h1>
+        <div class="flex flex-col">
+            <div style="background-image: url(image/hero.svg);" class="size-32"></div>
+        </div>
+    </div>
+</body>
+</html>
